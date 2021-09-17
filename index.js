@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const port = 7000
-app.get('/', (req, res) => res.send('MODMAIL SYSTEM IS WORKING PROPERLY !'))
+app.get('/', (req, res) => res.send('CRYSTAL MODMAIL SYSTEM IS WORKING PROPERLY !'))
 app.listen(port, () =>
 console.log(`READY TO GET MAIL'S FROM MEMBERS ! :D`));
 const discord = require("discord.js");
@@ -164,8 +164,8 @@ client.on("message", async message => {
                 .setAuthor('CRYSTAL MAIL-SYSTEM !', client.user.displayAvatarURL({ dynamic: true }))
                 .setColor("RANDOM")
                 .setDescription("HELP MENU 🔰 COMMANDS AND INFO !")
-                .addField("• DEVELOPER", `\`\`\`yml\nName: ❖MR.JOKER_773#7385 [790133566825955348]\nSERVER Ξ </CRYSTAL HQ> [790133566825955348]\`\`\``)
-                .addField("• SOCIAL LINKS", `**[DEV SERVER](https://discord.io/crystal-hq)\`||\`[WEBSITE]()\`||\`[INSTAGRAM]()\`||\`[REDDIT]()\`**`)
+                .addField("• DEVELOPER", `\`\`\`yml\nName: ❖MR.JOKER_773#7385 [879695880528216075]\nSERVER Ξ </CRYSTAL HQ> [880072899564814346]\`\`\``)
+                .addField("• SOCIAL LINKS", `**[DEV SERVER](https://discord.io/crystal-hq)\`||\`[WEBSITE](http://crystal-hq.renderforestsites.com/)\`||\`[INSTAGRAM](https://www.instagram.com/crystal_hq_official/)\`||\`[REDDIT](https://www.reddit.com/r/crystal_hq/)\`**`)
                 .addField("COMMANDS:")
                 .addField(`•${prefix}setup`, "SETUP THE MODMAIL SYSTEM(THIS IS NOT FOR MULTIPLE SERVER.) !", true)
                 .addField(`•${prefix}open`, 'LET YOU OPEN THE MAIL TO CONTACT ANYONE WITH HIS ID !', true)
