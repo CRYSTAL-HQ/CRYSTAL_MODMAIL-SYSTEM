@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const port = 7000
-app.get('/', (req, res) => res.send('CRYSTAL MODMAIL SYSTEM IS WORKING PROPERLY !'))
+app.get('/', (req, res) => res.send('MODMAIL SYSTEM IS WORKING PROPERLY !'))
 app.listen(port, () =>
 console.log(`READY TO GET MAIL'S FROM MEMBERS ! :D`));
 const discord = require("discord.js");
@@ -18,7 +18,7 @@ client.on('ready', () => {
   });
 
 client.on("channelDelete", (channel) => {
-    if (channel.parentID == channel.guild.channels.cache.find((x) => x.name == "»=====MAILBOX=====«").id) {
+    if (channel.parentID == channel.guild.channels.cache.find((x) => x.name == "「📧」MAIL-ROOM").id) {
         const person = channel.guild.members.cache.find((x) => x.id == channel.name)
 
         if (!person) return;
@@ -54,20 +54,20 @@ client.on("message", async message => {
             }
 
 
-            let role = message.guild.roles.cache.find((x) => x.name == "『MAIL TEAM』")
+            let role = message.guild.roles.cache.find((x) => x.name == "「📧 MAIL TEAM」")
             let everyone = message.guild.roles.cache.find((x) => x.name == "@everyone")
 
             if (!role) {
                 role = await message.guild.roles.create({
                     data: {
-                        name: "『MAIL TEAM』",
+                        name: "「📧 MAIL TEAM」",
                         color: "WHITE"
                     },
                     reason: "ROLE NEEDED FOR MODMAIL SYSTEM"
                 })
             }
 
-            await message.guild.channels.create("»=====MAILBOX=====«", {
+            await message.guild.channels.create("「📧」MAIL-ROOM", {
                 type: "category",
                 topic: "ALL MAILS WILL BE HERE ! :D",
                 permissionOverwrites: [{
@@ -82,12 +82,12 @@ client.on("message", async message => {
             })
 
 
-            return message.channel.send(">>> ✓ SETUP IS COMPLETED ! :D\n\n `WARNING: PLS DON'T EDIT CATEGORY, CHANNEL OR ROLE **NAME** CREATED BY MODMAIL,OTHERWISE THE MODMAIL SYSTEM WILL NOT WORK !\n SETUP BY BOT:`\n `CATEGORY`: `»=====MAILBOX=====«` \n `ROLE`: `『MAIL TEAM』` ")
+            return message.channel.send(">>> ✓ SETUP IS COMPLETED ! :D\n\n__**NOTE**__: PLS DON'T EDIT CATEGORY, CHANNEL OR ROLE **NAME** CREATED BY MODMAIL,OTHERWISE THE MODMAIL SYSTEM WILL NOT WORK !\n\nSETUP BY BOT:\n**CATEGORY**: `「📧」MAIL-ROOM`\n**ROLE**: `「📧 MAIL TEAM」` ")
 
         } else if (command == "close") {
 
 
-            if (message.channel.parentID == message.guild.channels.cache.find((x) => x.name == "»=====MAILBOX=====«").id) {
+            if (message.channel.parentID == message.guild.channels.cache.find((x) => x.name == "「📧」MAIL-ROOM").id) {
 
                 const person = message.guild.members.cache.get(message.channel.name)
 
@@ -108,14 +108,14 @@ client.on("message", async message => {
 
             }
         } else if (command == "open") {
-            const category = message.guild.channels.cache.find((x) => x.name == "»=====MAILBOX=====«")
+            const category = message.guild.channels.cache.find((x) => x.name == "「📧」MAIL-ROOM")
 
             if (!category) {
                 return message.channel.send(`>>> MODMAIL SYSTEM WAS NOT SETUP IN THIS SERVER, USE : \`${prefix}setup\``)
             }
 
-            if (!message.member.roles.cache.find((x) => x.name == "『MAIL TEAM』")) {
-                return message.channel.send(">>> YOU NEED THIS ROLE `『MAIL TEAM』`\n TO USE THIS COMMAND !")
+            if (!message.member.roles.cache.find((x) => x.name == "「📧 MAIL TEAM」")) {
+                return message.channel.send(">>> YOU NEED THIS ROLE `「📧 MAIL TEAM」`\n TO USE THIS COMMAND !")
             }
 
             if (isNaN(args[0]) || !args.length) {
@@ -149,7 +149,7 @@ client.on("message", async message => {
                 .setAuthor("DIRECT MAIL OPENED")
                 .setColor("GREEN")
                 .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-                .setDescription(`YOU HAVE BEEN CONTACTED TO STAFF TEAM OF **${message.guild.name}**, WRITE YOUR REASON FOR OPENING MAIL AND PLEASE WAIT UNTIL ANY STAFF CONTACT YOU !`);
+                .setDescription(`YOU HAVE BEEN CONTACTED TO STAFF TEAM OF **${message.guild.name}**,\nWRITE YOUR REASON FOR OPENING MAIL AND PLEASE WAIT UNTIL ANY STAFF CONTACT YOU !`);
 
 
             target.send(uembed);
@@ -164,11 +164,10 @@ client.on("message", async message => {
                 .setAuthor('CRYSTAL MAIL-SYSTEM !', client.user.displayAvatarURL({ dynamic: true }))
                 .setColor("RANDOM")
                 .setDescription("HELP MENU 🔰 COMMANDS AND INFO !")
-                .addField("• DEVELOPER", `\`\`\`yml\nName: ❖MR.JOKER_773#7385 [879695880528216075]\nSERVER Ξ </CRYSTAL HQ> [880072899564814346]\`\`\``)
+                .addField("• DEVELOPER", `\`\`\`yml\nName: ❖MR.JOKER_773#7385 [790133566825955348]\nSERVER Ξ </CRYSTAL HQ> [790133566825955348]\`\`\``)
                 .addField("• SOCIAL LINKS", `**[DEV SERVER](https://discord.io/crystal-hq)\`||\`[WEBSITE](http://crystal-hq.renderforestsites.com/)\`||\`[INSTAGRAM](https://www.instagram.com/crystal_hq_official/)\`||\`[REDDIT](https://www.reddit.com/r/crystal_hq/)\`**`)
-                .addField("COMMANDS:")
-                .addField(`•${prefix}setup`, "SETUP THE MODMAIL SYSTEM(THIS IS NOT FOR MULTIPLE SERVER.) !", true)
-                .addField(`•${prefix}open`, 'LET YOU OPEN THE MAIL TO CONTACT ANYONE WITH HIS ID !', true)
+                .addField(`• ${prefix}setup`, "SETUP THE MODMAIL SYSTEM(THIS IS NOT FOR MULTIPLE SERVER.) !", true)
+                .addField(`• ${prefix}open`, 'LET YOU OPEN THE MAIL TO CONTACT ANYONE WITH HIS ID !', true)
                 .addField(`• ${prefix}close`, "CLOSE THE MAIL IN WHICH YOU USE THIS COMMAND !", true)
                 .setThumbnail(client.user.displayAvatarURL( { dynamic: true }))
                 .setFooter("FROM </CRYSTAL HQ> ! :D");
@@ -183,7 +182,7 @@ client.on("message", async message => {
 
     if (message.channel.parentID) {
 
-        const category = message.guild.channels.cache.find((x) => x.name == "»=====MAILBOX=====«")
+        const category = message.guild.channels.cache.find((x) => x.name == "「📧」MAIL-ROOM")
         if(!category) return;
 
         if (message.channel.parentID == category.id) {
@@ -209,7 +208,7 @@ client.on("message", async message => {
         const guild = await client.guilds.cache.get(ServerID) || await client.guilds.fetch(ServerID).catch(m => {})
         if (!guild || !guild.members.cache.some(x => x.id === message.author.id)) return;
 
-        const category = guild.channels.cache.find((x) => x.name == "»=====MAILBOX=====«")
+        const category = guild.channels.cache.find((x) => x.name == "「📧」MAIL-ROOM")
         if (!category) return;
         const main = guild.channels.cache.find((x) => x.name == message.author.id)
 
