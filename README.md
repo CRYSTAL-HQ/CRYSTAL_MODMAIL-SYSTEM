@@ -41,6 +41,6 @@ HOW YOU CAN CONTRIBUTE/SUPPORT US ?
  
 # SUPPORT SERVER
  
- JUST CLICK ON THE BANNER ! ;)
+ JUST CLICK ON THE BANNER ! 😉
 
 [![CRYSTAL HQ](https://cdn.discordapp.com/attachments/882156262236778526/885837107640299520/CRYSTAL_HQ.gif)](https://discord.io/crystal-hq)
